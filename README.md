@@ -1,2 +1,16 @@
-# ai-business-projects
-A portfolio of practical AI projects covering generative AI, retrieval-augmented generation, AI agents, workflow automation, and business applications of artificial intelligence.
+## AI-Powered Digital Marketing Strategy
+
+An AI-powered marketing workflow developed using
+Dify and Google Gemini.
+
+### Technologies
+- Dify
+- Google Gemini
+- Generative AI
+- Prompt Engineering
+- Workflow Automation
+
+### Project Resources
+
+- [https://udify.app/workflow/WSpQDmE58wszNhRw)
+  
