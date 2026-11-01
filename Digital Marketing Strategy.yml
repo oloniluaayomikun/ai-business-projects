@@ -1,0 +1,279 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: workflow
+  name: Digital Marketing Strategy
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/gemini:0.9.10@4979b8843fa46c3c2143d339f5868f04d9d77166616c00dd9f811a4adfce03ab
+    version: null
+kind: app
+version: 0.5.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        single_chunk_attachment_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: llm
+      id: 1793405749178-source-1793405854785-target
+      source: '1793405749178'
+      sourceHandle: source
+      target: '1793405854785'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1793405854785-source-1793405996084-target
+      source: '1793405854785'
+      sourceHandle: source
+      target: '1793405996084'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1793405996084-source-1793406065360-target
+      source: '1793405996084'
+      sourceHandle: source
+      target: '1793406065360'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: end
+      id: 1793406065360-source-1793406218708-target
+      source: '1793406065360'
+      sourceHandle: source
+      target: '1793406218708'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        selected: false
+        title: User Input
+        type: start
+        variables:
+        - default: ''
+          hint: ''
+          label: product_name
+          max_length: 48
+          options: []
+          placeholder: ''
+          required: true
+          type: text-input
+          variable: product_name
+      height: 108
+      id: '1793405749178'
+      position:
+        x: 80
+        y: 282
+      positionAbsolute:
+        x: 80
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.5-flash-lite
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: f18df61b-685b-4a75-aa50-d3672f15f22d
+          role: system
+          text: 'As a digital marketing expert, please provide a detailed breakdown
+
+            of the key advantages and features of {{#1793405749178.product_name#}}],
+            listing them separately. Explain how these features address customer pain
+            points and differentiate the product from competitors.'
+        selected: false
+        title: Product Analysis
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1793405854785'
+      position:
+        x: 382
+        y: 282
+      positionAbsolute:
+        x: 382
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.5-flash-lite
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 2c27c9fd-b0e6-4e3c-b9d0-68d16790395f
+          role: system
+          text: 'As a digital marketing expert, provide a comprehensive target audience
+
+            persona analysis for selling {{#1793405749178.product_name#}}. Include
+            the following:
+
+            user persona (without emphasizing education level), demographics, psychographics,
+            buying behaviour, and key motivations.'
+        selected: false
+        title: Target Customers Identification
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1793405996084'
+      position:
+        x: 684
+        y: 282
+      positionAbsolute:
+        x: 684
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        model:
+          completion_params: {}
+          mode: chat
+          name: gemini-3.5-flash-lite
+          provider: langgenius/gemini/google
+        prompt_template:
+        - id: 105d095d-cef4-4e35-acf8-3c1ecd38008a
+          role: system
+          text: 'Combine the content of {{#1793405854785.text#}} and
+
+            {{#1793405996084.text#}} to write a professional marketing report.'
+        selected: false
+        title: Report Generation
+        type: llm
+        vision:
+          enabled: false
+      height: 87
+      id: '1793406065360'
+      position:
+        x: 986
+        y: 282
+      positionAbsolute:
+        x: 986
+        y: 282
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    - data:
+        outputs:
+        - value_selector:
+          - '1793405749178'
+          - product_name
+          value_type: string
+          variable: Product
+        - value_selector:
+          - '1793406065360'
+          - text
+          value_type: string
+          variable: Report
+        selected: false
+        title: Output
+        type: end
+      height: 114
+      id: '1793406218708'
+      position:
+        x: 1288
+        y: 282
+      positionAbsolute:
+        x: 1288
+        y: 282
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+    viewport:
+      x: -51.389026826370355
+      y: -90.73782321748638
+      zoom: 0.7415790152232025
+  rag_pipeline_variables: []
